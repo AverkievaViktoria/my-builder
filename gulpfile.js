@@ -11,6 +11,8 @@ global.$ = {
   },
   gulp: require('gulp'),
   del: require('del'),
+  spritesmith: require('gulp.spritesmith'),
+  spritesmash: require('gulp-spritesmash'),
   browserSync: require('browser-sync').create(),
   gp: require('gulp-load-plugins')()
 };
@@ -28,10 +30,15 @@ $.gulp.task('default', $.gulp.series(
     'js:process',
     'copy:image',
     'css:foundation',
-    'sprite:svg'
+    'sprite:svg',
+    'copy:2release',
+    'sprite:png'
   ),
   $.gulp.parallel(
     'watch',
     'serve'
   )
 ));
+
+//,'sprite:pnggif'
+
